@@ -25,7 +25,7 @@ export default function App() {
         axios.get("./data.json")
             .then((response) => {
                 setData(response.data);
-                setFilteredData(response.data);
+                setFilteredData(response.data); // Initialize with full data
             })
             .catch((error) => {
                 alert(error.message);
@@ -63,29 +63,23 @@ export default function App() {
         setSearchInput(value);
     };
 
-    // const handleAddProduct = (product) => {
-    //     let amount = Math.round(totalAmount + product.price);
-    //     handleTotalAmount(amount);
-    //     handleCartProducts((previousCartProduct) => [...new Set([...previousCartProduct, product])]);
-    // };
-
     const handleAddProduct = (product) => {
         let amount = Math.round(totalAmount + product.price);
         handleTotalAmount(amount);
     
-        handleCartProducts((previousCartProducts) => {
-            const productExists = previousCartProducts.find((item) => item.id === product.id);
-            
-            if (productExists) {
-                return previousCartProducts.map((item) =>
-                    item.id === product.id
-                        ? { ...item, quantity: item.quantity + 1 }
-                        : item
+       handleCartProducts((previousCartProduct)=>{
+            const productExits = previousCartProduct.find((item)=> item.id === product.id);
+
+            if(productExits){
+                return previousCartProduct.map((item)=>
+                    item.id === product.id 
+                    ? {...item,quantity: item.quantity + 1}
+                    : item
                 );
-            } else {
-                return [...previousCartProducts, { ...product, quantity: 1 }];
+            }else{
+                return [...previousCartProduct,{...product,quantity: 1}];
             }
-        });
+       });
     };
     
 
@@ -95,11 +89,25 @@ export default function App() {
             amount = 0;
         }
         handleTotalAmount(amount);
-
-        handleCartProducts((previousCartProduct) => (
-            previousCartProduct.filter((product) => product.id !== productToDelete.id)
-        ));
-    }
+    
+        handleCartProducts((previousCartProduct) => {
+            const productExits = previousCartProduct.find((item) => item.id === productToDelete.id);
+    
+            if (productExits) {
+                if (productExits.quantity > 1) {
+                    return previousCartProduct.map((item) =>
+                        item.id === productToDelete.id
+                            ? { ...item, quantity: item.quantity - 1 }
+                            : item
+                    );
+                } else {
+                    return previousCartProduct.filter((item) => item.id !== productToDelete.id);
+                }
+            }
+            return previousCartProduct;
+        });
+    };
+    
 
     return (
         <>
@@ -111,7 +119,7 @@ export default function App() {
                 <div className='flex md:flex-row flex-col px-4 gap-5 mb-5'>
                     <div className="flex-1">
                         <Autocomplete
-                            options={data.map((option) => option.name)}
+                            options={filteredData.map((option) => option.name)} 
                             inputValue={searchInput}
                             onInputChange={handleSearchInput}
                             renderInput={(params) => (
@@ -190,7 +198,7 @@ export default function App() {
                                             {product.price + ' $'}
                                         </Typography>
                                         <Typography variant="h6">
-                                            {`Quantity :`}
+                                        {`Quantity: ${product.quantity}`}
                                         </Typography>
                                     </CardContent>
                                     <div className="deleteDiv bg-slate-600 cursor-pointer rounded-full absolute top-3 right-3 p-2" onClick={() => handleDeleteProduct(product)}>
