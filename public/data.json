@@ -1,0 +1,40 @@
+[{
+        "id": 1,
+        "name": "Product 1",
+        "description": "Description of product 1",
+        "category": "Category A",
+        "price": 10.99,
+        "image": "https://images.unsplash.com/photo-1535732820275-9ffd998cac22?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BvcnRzJTIwY2FyfGVufDB8fDB8fHww"
+    },
+    {
+        "id": 2,
+        "name": "Product 2",
+        "description": "Description of product 2",
+        "category": "Category B",
+        "price": 20.99,
+        "image": "https://images.unsplash.com/photo-1592853625511-ad0edcc69c07?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c3BvcnRzJTIwY2FyfGVufDB8fDB8fHww"
+    },
+    {
+        "id": 3,
+        "name": "Product 3",
+        "description": "Description of product 3",
+        "category": "Category A",
+        "price": 15.99,
+        "image": "https://images.unsplash.com/photo-1519440862171-af26cf8c2a85?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNwb3J0cyUyMGNhcnxlbnwwfHwwfHx8MA%3D%3D"
+    },
+    {
+        "id": 4,
+        "name": "Product 4",
+        "description": "Description of product 4",
+        "category": "Category C",
+        "price": 25.99,
+        "image": "https://images.unsplash.com/photo-1592853625601-bb9d23da12fc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHNwb3J0cyUyMGNhcnxlbnwwfHwwfHx8MA%3D%3D"
+    }, {
+        "id": 5,
+        "name": "Product 5",
+        "description": "Description of product 4",
+        "category": "Category A",
+        "price": 85.99,
+        "image": "https://images.unsplash.com/photo-1671879507430-ebb6a832bdf1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHNwb3J0cyUyMGNhcnxlbnwwfHwwfHx8MA%3D%3D"
+    }
+]
